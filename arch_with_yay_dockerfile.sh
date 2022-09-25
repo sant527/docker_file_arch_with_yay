@@ -31,15 +31,6 @@ RUN git clone https://aur.archlinux.org/yay.git \\
   && rm -rf .cache yay
 CMD /bin/bash
 
-RUN yes | pacman -S wget --noconfirm
-
-RUN sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
-
-RUN sudo chmod a+rx /usr/local/bin/yt-dlp  # Make executable
-
-RUN sudo pacman -S ffmpeg --needed --noconfirm
-
-
 EOF
 
 docker build -t arch_with_yay - < $dockerfile
